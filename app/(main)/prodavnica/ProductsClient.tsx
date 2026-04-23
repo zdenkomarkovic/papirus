@@ -20,30 +20,19 @@ export function ProductsClient({ products, categories }: ProductsClientProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-10">
-        <button
-          onClick={() => setActiveCategory("sve")}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
-            activeCategory === "sve"
-              ? "bg-primary-800 text-white"
-              : "bg-white text-slate-600 border border-slate-200 hover:border-primary-400"
-          }`}
+      <div className="mb-10">
+        <select
+          value={activeCategory}
+          onChange={(e) => setActiveCategory(e.target.value)}
+          className="px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400"
         >
-          Sve
-        </button>
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
-              activeCategory === cat
-                ? "bg-primary-800 text-white"
-                : "bg-white text-slate-600 border border-slate-200 hover:border-primary-400"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
+          <option value="sve">Sve kategorije</option>
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
       </div>
 
       {filtered.length === 0 ? (

@@ -15,8 +15,8 @@ export function Hero() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Sve na jednom
-            <span className="text-accent-400"> mestu</span>
+            Papirus Temerin –{" "}
+            <span className="text-accent-400">sve na jednom mestu</span>
           </h1>
 
           <p className="text-lg md:text-xl text-primary-200 mb-10 leading-relaxed max-w-2xl">
