@@ -7,6 +7,7 @@ export const COMPANY = {
   address: "Novosadska 365",
   city: "21235 Temerin",
   phone: "063 568 020",
+  phone2: "021 842 677",
   email: "papirustemerin@gmail.com",
   workingHours: {
     weekdays: "Pon – Pet: 08:00 – 20:00",

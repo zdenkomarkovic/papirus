@@ -6,6 +6,8 @@ import { buildMetadata } from "@/lib/metadata";
 import { ProductDetail } from "./ProductDetail";
 import type { PageParams } from "@/types";
 
+export const revalidate = 30;
+
 export async function generateStaticParams() {
   const products = await getProducts();
   return products.map((p) => ({ slug: p.slug }));

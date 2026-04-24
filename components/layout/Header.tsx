@@ -23,6 +23,10 @@ export function Header() {
             <Phone size={13} />
             {COMPANY.phone}
           </a>
+          <a href={`tel:${COMPANY.phone2.replace(/\s/g, "")}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Phone size={13} />
+            {COMPANY.phone2}
+          </a>
           <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors">
             {COMPANY.email}
           </a>
@@ -99,6 +103,9 @@ export function Header() {
             <div className="pt-2 border-t border-primary-700 space-y-1 text-sm text-primary-200">
               <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 px-4 py-2">
                 <Phone size={14} /> {COMPANY.phone}
+              </a>
+              <a href={`tel:${COMPANY.phone2.replace(/\s/g, "")}`} className="flex items-center gap-2 px-4 py-2">
+                <Phone size={14} /> {COMPANY.phone2}
               </a>
             </div>
           </div>

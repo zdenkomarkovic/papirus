@@ -40,11 +40,16 @@ export function Footer() {
                 <MapPin size={15} className="mt-0.5 shrink-0 text-accent-400" />
                 <span>{COMPANY.address}<br />{COMPANY.city}</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={15} className="shrink-0 text-accent-400" />
-                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:text-white transition-colors">
-                  {COMPANY.phone}
-                </a>
+              <li className="flex items-start gap-2.5">
+                <Phone size={15} className="shrink-0 text-accent-400 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:text-white transition-colors">
+                    {COMPANY.phone}
+                  </a>
+                  <a href={`tel:${COMPANY.phone2.replace(/\s/g, "")}`} className="hover:text-white transition-colors">
+                    {COMPANY.phone2}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={15} className="shrink-0 text-accent-400" />
@@ -66,7 +71,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-primary-800 text-center text-xs text-primary-500">
           © {new Date().getFullYear()} {COMPANY.fullName}. Sva prava zadržana.
-          <span className="block mt-1">Izrada sajta: <a href="https://manikamwebsolutions.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-300 transition-colors">Manikam Web Solutions</a></span>
+          <span className="block mt-1">Izrada sajta: <a href="https://manikamwebsolutions.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Manikam Web Solutions</a></span>
         </div>
       </div>
     </footer>

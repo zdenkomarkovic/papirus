@@ -37,7 +37,7 @@ export function AboutSection() {
             </ul>
           </div>
 
-          <div className="bg-primary-50 rounded-2xl p-8 space-y-5">
+          <div className="bg-primary-50 rounded-2xl p-8 space-y-5 flex flex-col">
             <h3 className="text-xl font-bold text-primary-800 mb-6">Pronađite nas</h3>
 
             <div className="flex items-start gap-4">
@@ -56,8 +56,11 @@ export function AboutSection() {
               </div>
               <div>
                 <p className="font-semibold text-primary-900">Pozovite nas</p>
-                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-accent-600 hover:text-accent-500 text-sm font-medium">
+                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-accent-600 hover:text-accent-500 text-sm font-medium block">
                   {COMPANY.phone}
+                </a>
+                <a href={`tel:${COMPANY.phone2.replace(/\s/g, "")}`} className="text-accent-600 hover:text-accent-500 text-sm font-medium block">
+                  {COMPANY.phone2}
                 </a>
               </div>
             </div>
@@ -78,6 +81,20 @@ export function AboutSection() {
               <p>{COMPANY.workingHours.weekdays}</p>
               <p>{COMPANY.workingHours.saturday}</p>
               <p className="text-slate-400">{COMPANY.workingHours.sunday}</p>
+            </div>
+
+            <div className="pt-4 rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps?q=Novosadska+365,+21235+Temerin,+Serbia&output=embed&hl=sr"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Papirus lokacija"
+                className="rounded-xl"
+              />
             </div>
           </div>
         </div>

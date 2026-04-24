@@ -36,7 +36,7 @@ export interface Product {
   slug: string;
   price: number;
   category: string;
-  image: string;
+  image?: string;
   description?: string;
   inStock: boolean;
 }

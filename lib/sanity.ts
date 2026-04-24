@@ -4,7 +4,7 @@ import type { Product } from "@/types";
 export const sanityClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "your-project-id",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
-  useCdn: true,
+  useCdn: false,
   apiVersion: "2024-01-01",
 });
 

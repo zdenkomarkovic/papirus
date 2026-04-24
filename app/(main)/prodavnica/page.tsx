@@ -8,6 +8,8 @@ export const metadata = buildMetadata({
     "Prodavnica kancelarijskog i školskog materijala – Papirus STR. Temerin.",
 });
 
+export const revalidate = 30;
+
 export default async function ProdavnicaPage() {
   const [products, categories] = await Promise.all([getProducts(), getCategories()]);
 
