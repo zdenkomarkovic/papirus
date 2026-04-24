@@ -37,15 +37,19 @@ export function CartPageClient() {
             <div className="lg:col-span-3 space-y-4">
               {items.map(({ product, quantity }) => (
                 <div key={product._id} className="bg-white rounded-2xl p-4 shadow-sm flex gap-4">
-                  <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </div>
+                  {product.image ? (
+                    <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-xl shrink-0 bg-slate-100" />
+                  )}
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-primary-600 font-medium">{product.category}</p>
                     <h3 className="font-semibold text-primary-900 truncate">{product.name}</h3>
