@@ -15,7 +15,14 @@ export const product = defineType({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "name" },
+      options: {
+        source: (doc: { name?: string; _id?: string }) => {
+          const base = doc.name ?? "";
+          const id = (doc._id ?? "").replace("drafts.", "").slice(-6);
+          return id ? `${base}-${id}` : base;
+        },
+        maxLength: 96,
+      },
       validation: (r) => r.required(),
     }),
     defineField({

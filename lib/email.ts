@@ -1,6 +1,6 @@
 import Mailjet from "node-mailjet";
 import type { Order } from "@/types";
-import { COMPANY } from "./constants";
+import { COMPANY, SITE_URL } from "./constants";
 
 const mailjet = Mailjet.apiConnect(
   process.env.MAILJET_API_KEY!,
@@ -9,14 +9,18 @@ const mailjet = Mailjet.apiConnect(
 
 export async function sendOrderEmail(order: Order) {
   const itemsHtml = order.items
-    .map(
-      (item) => `
+    .map((item) => {
+      const url = `${SITE_URL}/prodavnica/${item.product.slug}`;
+      return `
       <tr>
-        <td style="padding:8px;border-bottom:1px solid #eee;">${item.product.name}</td>
+        <td style="padding:8px;border-bottom:1px solid #eee;">
+          <a href="${url}" style="color:#1e3a5f;font-weight:bold;text-decoration:none;">${item.product.name}</a>
+          <br/><span style="font-size:12px;color:#888;">${item.product.category}</span>
+        </td>
         <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">${item.quantity}</td>
         <td style="padding:8px;border-bottom:1px solid #eee;text-align:right;">${(item.product.price * item.quantity).toLocaleString("sr-RS")} RSD</td>
-      </tr>`
-    )
+      </tr>`;
+    })
     .join("");
 
   const html = `
