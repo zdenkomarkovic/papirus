@@ -19,7 +19,11 @@ export async function generateMetadata({ params }: PageParams<{ slug: string }>)
   if (!product) return {};
   return buildMetadata({
     title: product.name,
-    description: product.description ?? `${product.name} – Papirus STR`,
+    description: product.description
+      ? `${product.description} – Papirus STR. Temerin, Novosadska 365.`
+      : `${product.name} – kupite u Papirus STR. Temerin, Novosadska 365.`,
+    image: product.image ?? undefined,
+    path: `/prodavnica/${product.slug}`,
   });
 }
 

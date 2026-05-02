@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/shop/ProductCard";
 import type { Product } from "@/types";
 
@@ -12,7 +13,10 @@ interface ProductsClientProps {
 const PAGE_SIZE = 12;
 
 export function ProductsClient({ products, categories }: ProductsClientProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("sve");
+  const searchParams = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState<string>(
+    searchParams.get("kategorija") ?? "sve"
+  );
   const [currentPage, setCurrentPage] = useState(1);
 
   const filtered =

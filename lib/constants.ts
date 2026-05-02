@@ -1,5 +1,5 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-export const SITE_NAME = "Papirus";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://papirustemerin.rs";
+export const SITE_NAME = "Papirus Temerin";
 
 export const COMPANY = {
   name: "Papirus STR.",

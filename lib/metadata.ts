@@ -4,41 +4,25 @@ import { SITE_NAME, SITE_URL } from "./constants";
 interface BuildMetadataOptions {
   title?: string;
   description?: string;
-  /** Putanja do slike za OG (relativna od /public ili apsolutna URL) */
   image?: string;
-  /** Canonical URL - ako nije naveden, koristi SITE_URL */
-  url?: string;
-  /** Da li da noindex ova stranica */
+  path?: string;
   noIndex?: boolean;
-  /** Tip stranice za OG */
   type?: "website" | "article";
-  /** Datum objave (za blog postove) */
   publishedTime?: string;
 }
 
-/**
- * Helper za generisanje Next.js Metadata objekta.
- * Koristiti u svakom page.tsx fajlu.
- *
- * @example
- * // U page.tsx:
- * export const metadata = buildMetadata({
- *   title: "O nama",
- *   description: "Kratki opis stranice",
- * });
- */
 export function buildMetadata({
   title,
   description,
   image,
-  url,
+  path,
   noIndex = false,
   type = "website",
   publishedTime,
 }: BuildMetadataOptions = {}): Metadata {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-  const canonicalUrl = url ?? SITE_URL;
-  const ogImage = image ?? `${SITE_URL}/og-image.png`; // Dodaj og-image.png u /public
+  const canonicalUrl = path ? `${SITE_URL}${path}` : SITE_URL;
+  const ogImage = image ?? `${SITE_URL}/logo.jpg`;
 
   return {
     title: fullTitle,
@@ -52,6 +36,7 @@ export function buildMetadata({
       description,
       url: canonicalUrl,
       siteName: SITE_NAME,
+      locale: "sr_RS",
       type,
       images: [
         {

@@ -6,7 +6,8 @@ import { Phone, Mail } from "lucide-react";
 export const metadata = buildMetadata({
   title: "Usluge",
   description:
-    "Sve usluge Papirust STR.: 3D štampa, graviranje, lasersko sečenje, izrada ključeva, pečata, medalja, pehara, sublimacijska štampa i fotokopiranje.",
+    "Sve usluge Papirus STR. Temerin: 3D štampa, graviranje, lasersko sečenje, izrada ključeva, pečata, medalja, pehara, sublimacijska štampa i fotokopiranje. Novosadska 365, Temerin.",
+  path: "/usluge",
 });
 
 export default function UsluePage() {

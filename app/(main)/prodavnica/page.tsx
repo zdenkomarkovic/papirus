@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { buildMetadata } from "@/lib/metadata";
 import { getProducts, getCategories } from "@/lib/sanity";
 import { ProductsClient } from "./ProductsClient";
@@ -5,7 +6,8 @@ import { ProductsClient } from "./ProductsClient";
 export const metadata = buildMetadata({
   title: "Prodavnica",
   description:
-    "Prodavnica kancelarijskog i školskog materijala – Papirus STR. Temerin.",
+    "Prodavnica kancelarijskog i školskog materijala u Temerinu – Papirus STR. Novosadska 365, Temerin. Veliki izbor pribora, sveske, flomasteri, registratori i još mnogo toga.",
+  path: "/prodavnica",
 });
 
 export const revalidate = 30;
@@ -23,7 +25,9 @@ export default async function ProdavnicaPage() {
           </p>
         </div>
       </div>
-      <ProductsClient products={products} categories={categories} />
+      <Suspense fallback={<div className="py-20 text-center text-slate-400">Učitavanje...</div>}>
+        <ProductsClient products={products} categories={categories} />
+      </Suspense>
     </div>
   );
 }
